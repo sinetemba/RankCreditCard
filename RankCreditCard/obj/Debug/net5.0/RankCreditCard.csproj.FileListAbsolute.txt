@@ -290,6 +290,10 @@ C:\Code\RankCreditCard\RankCreditCard\bin\Debug\net5.0\refs\System.Xml.XPath.XDo
 C:\Code\RankCreditCard\RankCreditCard\bin\Debug\net5.0\refs\WindowsBase.dll
 C:\Code\RankCreditCard\RankCreditCard\bin\Debug\net5.0\RankCreditCard.Views.dll
 C:\Code\RankCreditCard\RankCreditCard\bin\Debug\net5.0\RankCreditCard.Views.pdb
+C:\Code\RankCreditCard\RankCreditCard\bin\Debug\net5.0\CreditCardValidator.dll
+C:\Code\RankCreditCard\RankCreditCard\bin\Debug\net5.0\FluentValidation.dll
+C:\Code\RankCreditCard\RankCreditCard\bin\Debug\net5.0\FluentValidation.AspNetCore.dll
+C:\Code\RankCreditCard\RankCreditCard\bin\Debug\net5.0\FluentValidation.DependencyInjectionExtensions.dll
 C:\Code\RankCreditCard\RankCreditCard\bin\Debug\net5.0\Humanizer.dll
 C:\Code\RankCreditCard\RankCreditCard\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
 C:\Code\RankCreditCard\RankCreditCard\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.dll
@@ -352,7 +356,6 @@ C:\Code\RankCreditCard\RankCreditCard\bin\Debug\net5.0\runtimes\win-arm\native\e
 C:\Code\RankCreditCard\RankCreditCard\bin\Debug\net5.0\runtimes\win-arm64\native\e_sqlite3.dll
 C:\Code\RankCreditCard\RankCreditCard\bin\Debug\net5.0\runtimes\win-x64\native\e_sqlite3.dll
 C:\Code\RankCreditCard\RankCreditCard\bin\Debug\net5.0\runtimes\win-x86\native\e_sqlite3.dll
-C:\Code\RankCreditCard\RankCreditCard\obj\Debug\net5.0\RankCreditCard.csproj.AssemblyReference.cache
 C:\Code\RankCreditCard\RankCreditCard\obj\Debug\net5.0\RankCreditCard.GeneratedMSBuildEditorConfig.editorconfig
 C:\Code\RankCreditCard\RankCreditCard\obj\Debug\net5.0\RankCreditCard.AssemblyInfoInputs.cache
 C:\Code\RankCreditCard\RankCreditCard\obj\Debug\net5.0\RankCreditCard.AssemblyInfo.cs
@@ -367,6 +370,8 @@ C:\Code\RankCreditCard\RankCreditCard\obj\Debug\net5.0\scopedcss\bundle\RankCred
 C:\Code\RankCreditCard\RankCreditCard\obj\Debug\net5.0\RankCreditCard.TagHelpers.input.cache
 C:\Code\RankCreditCard\RankCreditCard\obj\Debug\net5.0\RankCreditCard.TagHelpers.output.cache
 C:\Code\RankCreditCard\RankCreditCard\obj\Debug\net5.0\RankCreditCard.RazorCoreGenerate.cache
+C:\Code\RankCreditCard\RankCreditCard\obj\Debug\net5.0\Razor\Views\CreditCard\Add.cshtml.g.cs
+C:\Code\RankCreditCard\RankCreditCard\obj\Debug\net5.0\Razor\Views\CreditCard\List.cshtml.g.cs
 C:\Code\RankCreditCard\RankCreditCard\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
 C:\Code\RankCreditCard\RankCreditCard\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Code\RankCreditCard\RankCreditCard\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
@@ -382,6 +387,3 @@ C:\Code\RankCreditCard\RankCreditCard\obj\Debug\net5.0\RankCreditCard.dll
 C:\Code\RankCreditCard\RankCreditCard\obj\Debug\net5.0\ref\RankCreditCard.dll
 C:\Code\RankCreditCard\RankCreditCard\obj\Debug\net5.0\RankCreditCard.pdb
 C:\Code\RankCreditCard\RankCreditCard\obj\Debug\net5.0\RankCreditCard.genruntimeconfig.cache
-C:\Code\RankCreditCard\RankCreditCard\bin\Debug\net5.0\CreditCardValidator.dll
-C:\Code\RankCreditCard\RankCreditCard\obj\Debug\net5.0\Razor\Views\CreditCard\List.cshtml.g.cs
-C:\Code\RankCreditCard\RankCreditCard\obj\Debug\net5.0\Razor\Views\CreditCard\Add.cshtml.g.cs

@@ -10,6 +10,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FluentValidation.AspNetCore;
+using RankCreditCard.Interfaces;
+using RankCreditCard.Validators;
+using FluentValidation;
+using RankCreditCard.Models;
 
 namespace RankCreditCard
 {
@@ -25,10 +30,21 @@ namespace RankCreditCard
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddFluentValidation();
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
+            services.AddScoped<IRankCreditCardContext>(provider => provider.GetService<RankCreditCardContext>());
             services.AddDbContext<RankCreditCardContext>(options => options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddTransient<IValidator<CreditCard>, CreditCardInfoValidator>();
+
+            //services.AddFluentValidation(x =>
+            //{
+            //    x.DisableDataAnnotationsValidation = true;
+            //    x.ImplicitlyValidateChildProperties = true;
+
+            //    x.RegisterValidatorsFromAssemblyContaining<CreditCardInfoValidator>();
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

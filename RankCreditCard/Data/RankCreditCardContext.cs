@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using RankCreditCard.Interfaces;
 using RankCreditCard.Models;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RankCreditCard.Data
 {
-    public class RankCreditCardContext : DbContext
+    public class RankCreditCardContext : DbContext, IRankCreditCardContext
     {
         public RankCreditCardContext(DbContextOptions<RankCreditCardContext> options)
            : base(options)

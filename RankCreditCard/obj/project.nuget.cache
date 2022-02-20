@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "QjuT09h4E4xRZ6n1KmAupaeppf3yic4O+s8dmlNC5Vj/hv2oDKTKlLPjLyuV8X754xsk9y+vPt7bk1FhGQItTg==",
+  "dgSpecHash": "9K/HmOftzgIny7uDlEGyyFF9ZXTFgxglQ9aX4lOP3TXeDNvfTZ3wClryFjYBe7S8T3QSPAnK57k6cY4nMIOsZw==",
   "success": true,
   "projectFilePath": "C:\\Code\\RankCreditCard\\RankCreditCard\\RankCreditCard.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sinetemba.nkosana\\.nuget\\packages\\creditcardvalidator\\2.0.1\\creditcardvalidator.2.0.1.nupkg.sha512",
+    "C:\\Users\\sinetemba.nkosana\\.nuget\\packages\\fluentvalidation\\10.3.6\\fluentvalidation.10.3.6.nupkg.sha512",
+    "C:\\Users\\sinetemba.nkosana\\.nuget\\packages\\fluentvalidation.aspnetcore\\10.3.6\\fluentvalidation.aspnetcore.10.3.6.nupkg.sha512",
+    "C:\\Users\\sinetemba.nkosana\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\10.3.6\\fluentvalidation.dependencyinjectionextensions.10.3.6.nupkg.sha512",
     "C:\\Users\\sinetemba.nkosana\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\sinetemba.nkosana\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.extensions\\5.0.14\\microsoft.aspnetcore.mvc.razor.extensions.5.0.14.nupkg.sha512",
     "C:\\Users\\sinetemba.nkosana\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.runtimecompilation\\5.0.14\\microsoft.aspnetcore.mvc.razor.runtimecompilation.5.0.14.nupkg.sha512",
