@@ -1,27 +1,33 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using RankCreditCard.Data;
+﻿using CreditCardValidator;
+using Microsoft.AspNetCore.Mvc;
 using RankCreditCard.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using RankCreditCard.Helpers;
+using Core.Entities;
+using Core.Interfaces;
+using AutoMapper;
 
 namespace RankCreditCard.Controllers
 {
     public class CreditCardController : Controller
     {
-       
-        private RankCreditCardContext _context;
+        private readonly ICreditCardRepository _creditCardRepository;
+        private readonly IMapper _mapper;
 
-        public CreditCardController(RankCreditCardContext context)
-        {           
-            _context = context;
+
+        public CreditCardController(ICreditCardRepository creditCardRepository, IMapper mapper)
+        {
+            _creditCardRepository = creditCardRepository;
+            _mapper = mapper;
         }
         public async Task<IActionResult> List()
         {
-            var creditcards = await _context.CreditCards.ToListAsync();
-            return View(creditcards);
+            var creditcards = await _creditCardRepository.GetCreditCardsAsync();
+
+            var model = _mapper.Map<List<CreditCard>, List<CreditCardViewModel>>(creditcards);
+            return View(model);
         }
 
         [HttpGet]
@@ -31,26 +37,31 @@ namespace RankCreditCard.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add(CreditCard creditcard)
+        public async Task<IActionResult> Add(CreditCardViewModel creditcardViewModel)
         {
-            //CreditCardValidator.Luhn.CheckLuhn(creditcard.CardNumber);
-
-            //var cc = new CreditCardDetector(creditcard.CardNumber);
-            //var isValid = cc.IsValid();
-            //var brand = cc.Brand;
-
-            //CreditCardValidator.
 
             // validate that our model meets the requirement
             if (ModelState.IsValid)
             {
                 try
                 {
-                    // update the ef core context in memory 
-                    _context.Add(creditcard);
+                    //TODO: move this to a service in CORE project
+                    var creditCardDetector = new CreditCardDetector(creditcardViewModel.CardNumber);
+                    var brand = creditCardDetector.BrandName;
 
-                    // sync the changes of ef code in memory with the database
-                    await _context.SaveChangesAsync();
+                    var entity = new CreditCard()
+                    {
+                        CardHolderName = creditcardViewModel.CardHolderName,
+                        CardNumber = creditcardViewModel.CardNumber.Encrypt(),
+                        CCVNumber = creditcardViewModel.CCVNumber,
+                        ExpiryMonth = creditcardViewModel.ExpiryMonth,
+                        ExpiryYear = creditcardViewModel.ExpiryYear,
+                        Provider = brand,
+
+                    };
+
+                    _creditCardRepository.AddNewCreditCard(entity);
+
 
                     return RedirectToAction("List");
                 }
@@ -62,8 +73,30 @@ namespace RankCreditCard.Controllers
 
             ModelState.AddModelError(string.Empty, $"Something went wrong, invalid information provided.");
 
-            // We return the object back to view
-            return View(creditcard);
+
+            return View(creditcardViewModel);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var creditCard = await _creditCardRepository.GetCreditCardByIdAsync(id);
+
+            return View(_mapper.Map<CreditCard, CreditCardViewModel>(creditCard));
+
+        }
+       
+        [HttpPost]
+        public async Task<IActionResult> RemoveCreditCard(int creditcardId)
+        {
+            var creditCard = await _creditCardRepository.GetCreditCardByIdAsync(creditcardId);
+
+            if (creditCard != null)
+            {
+                _creditCardRepository.RemoveCreditCard(creditCard);
+            }
+
+            return RedirectToAction("List");
         }
     }
 }

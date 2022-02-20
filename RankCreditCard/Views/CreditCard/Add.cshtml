@@ -1,73 +1,101 @@
-﻿@model RankCreditCard.Models.CreditCard
+﻿@model RankCreditCard.Models.CreditCardViewModel
 @{
     ViewData["Title"] = "Add Card Page";
 }
 
-
-<form asp-action="Add" asp-area="CreditCard" method="post" class="credit-card">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <div class="form-header">
-        <h4 class="title">New credit card information</h4>
-    </div>
-
-    <div class="form-body">
-
-        <!-- Card Number -->
-        <div class="form-group">
-            <label>Card Number:</label>
-            <input asp-for="CardNumber" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="19" placeholder="xxxx xxxx xxxx xxxx" class="form-control required" tabindex="1">
-            <span asp-validation-for="CardNumber" class="text-danger"></span>
+<form asp-action="Add" asp-area="CreditCard" method="post" class="creditly-card-form agileinfo_form">
+    <section class="creditly-wrapper wthree, w3_agileits_wrapper">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-header">
+            <h4 class="title">New credit card information</h4>
         </div>
 
-        <!--Name on the card -->
-        <div class="form-group">
-            <label>Card Holder:</label>
-            <input asp-for="CardHolderName" type="text" class="form-control required" placeholder="Card Holder Name" tabindex="2">
-            <span asp-validation-for="CardHolderName" class="text-danger"></span>
-        </div>
+        <div class="creditly-wrapper wthree, w3_agileits_wrapper">
 
+            <!-- Card Number -->
+            <div class="form-group">
+                <label>Card Number:</label>
+                <input asp-for="CardNumber" type="text" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" autocompletetype="cc-number" x-autocompletetype="cc-number"
+                       maxlength="19" placeholder="xxxx xxxx xxxx xxxx" class="form-control required" tabindex="1">
+                <span asp-validation-for="CardNumber" class="text-danger"></span>
+            </div>
 
-        <!-- Date Field -->
-        <div class="date-field">
-            <div class="month">
-                <select asp-for="ExpiryMonth"
-                        asp-items="@Html.GetEnumSelectList<RankCreditCard.Helpers.MonthEnums>()" tabindex="3">
-                </select>
-                <span asp-validation-for="ExpiryMonth" class="text-danger"></span>
+            <!--Name on the card -->
+            <div class="form-group">
+                <label>Card Holder:</label>
+                <input asp-for="CardHolderName" type="text" class="form-control required" placeholder="Card Holder Name" tabindex="2">
+                <span asp-validation-for="CardHolderName" class="text-danger"></span>
             </div>
 
 
-            <div class="year">
-                <select asp-for="ExpiryYear" tabindex="4">
-                    <option value="0">Select Year</option>
-                    <option value="2023">23</option>
-                    <option value="2024">24</option>
-                    <option value="2025">25</option>
-                    <option value="2026">26</option>
-                    <option value="2027">27</option>
-                </select>
-                <span asp-validation-for="ExpiryYear" class="text-danger"></span>
+            <!-- Date Field -->
+            <div class="w3_agileits_card_number_grids">
+                <div class="w3_agileits_card_number_grid_left">
+                    <div class="controls">
+                        <select asp-for="ExpiryMonth"
+                                asp-items="@Html.GetEnumSelectList<RankCreditCard.Helpers.MonthEnums>()" tabindex="3">
+                        </select>
+                        <span asp-validation-for="ExpiryMonth" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+                <div class="w3_agileits_card_number_grid_right">
+                    <div class="controls">
+                        <select asp-for="ExpiryYear" tabindex="4">
+                            <option value="0">Select Year</option>
+                            <option value="2022">22</option>
+                            <option value="2023">23</option>
+                            <option value="2024">24</option>
+                            <option value="2025">25</option>
+                            <option value="2026">26</option>
+                            <option value="2027">27</option>
+                        </select>
+                        <span asp-validation-for="ExpiryYear" class="text-danger"></span>
+                    </div>
+                </div>
             </div>
+
+            <!-- Card Verification Field -->
+            <div class="card-verification">
+                <div class="cvv-input">
+                    <input asp-for="CCVNumber" type="text" class="form-control required" placeholder="CVV" tabindex="5">
+                    <span asp-validation-for="CCVNumber" class="text-danger"></span>
+                </div>
+                <div class="cvv-details">
+                    <p>3 or 4 digits usually found <br> on the signature strip</p>
+                </div>
+            </div>
+
+            <!-- Buttons -->
+            <button type="submit" class="proceed-btn"><span>Save Card Info <i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></button>
+            <a asp-action="List" asp-controller="CreditCard" class="proceed-btn">Cancel</a>
         </div>
-
-        <!-- Card Verification Field -->
-        <div class="card-verification">
-            <div class="cvv-input">
-                <input asp-for="CCVNumber" type="text" class="form-control required" placeholder="CVV" tabindex="5">
-                <span asp-validation-for="CCVNumber" class="text-danger"></span>
-            </div>
-            <div class="cvv-details">
-                <p>3 or 4 digits usually found <br> on the signature strip</p>
-            </div>
-        </div>
-
-        <!-- Buttons -->
-        <button type="submit" class="proceed-btn">Save Card</button>
-        <a asp-action="Index" asp-controller="Contacts" class="proceed-btn">Cancel</a>
-
-    </div>
+    </section>
 </form>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
 }
+
+<!-- credit-card -->
+<script type="text/javascript" src="js/creditly.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var creditly = Creditly.initialize(
+            '.creditly-wrapper .expiration-month-and-year',
+            '.creditly-wrapper .credit-card-number',
+            '.creditly-wrapper .security-code',
+            '.creditly-wrapper .card-type');
+
+        $(".creditly-card-form .submit").click(function (e) {
+            e.preventDefault();
+            var output = creditly.validate();
+            if (output) {
+                // Your validated credit card output
+                console.log(output);
+            }
+        });
+    });
+</script>
+<!-- //credit-card -->

@@ -1,20 +1,17 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using RankCreditCard.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using FluentValidation.AspNetCore;
-using RankCreditCard.Interfaces;
 using RankCreditCard.Validators;
 using FluentValidation;
 using RankCreditCard.Models;
+using AutoMapper;
+using RankCreditCard.Helpers;
+using Core.Interfaces;
+using Infrastructure.Data;
 
 namespace RankCreditCard
 {
@@ -32,19 +29,24 @@ namespace RankCreditCard
         {
             services.AddControllersWithViews().AddFluentValidation();
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
-
-            services.AddScoped<IRankCreditCardContext>(provider => provider.GetService<RankCreditCardContext>());
+         
             services.AddDbContext<RankCreditCardContext>(options => options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddTransient<IValidator<CreditCard>, CreditCardInfoValidator>();
+            services.AddTransient<IValidator<CreditCardViewModel>, CreditCardInfoValidator>();
 
-            //services.AddFluentValidation(x =>
-            //{
-            //    x.DisableDataAnnotationsValidation = true;
-            //    x.ImplicitlyValidateChildProperties = true;
+            services.AddScoped<ICreditCardRepository, CreditCardRepository>();
 
-            //    x.RegisterValidatorsFromAssemblyContaining<CreditCardInfoValidator>();
-            //});
+
+
+            // Auto Mapper Configurations
+            var mapperConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new MappingProfile());
+            });
+
+            IMapper mapper = mapperConfig.CreateMapper();
+            services.AddSingleton(mapper);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
