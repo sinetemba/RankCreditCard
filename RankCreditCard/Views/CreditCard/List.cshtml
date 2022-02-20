@@ -1,0 +1,70 @@
+﻿@model IEnumerable<RankCreditCard.Models.CreditCard>
+
+@{
+    ViewData["Title"] = "View";
+}
+
+<h1>View</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CardHolderName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CardNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CCVNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExpiryYear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExpiryMonth)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CardHolderName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CardNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CCVNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExpiryYear)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExpiryMonth)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+<input type="button" value="Add New Card" onclick="location.href='@Url.Action("Add", "CreditCard")'" />

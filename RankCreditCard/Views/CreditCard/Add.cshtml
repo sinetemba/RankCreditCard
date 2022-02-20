@@ -1,0 +1,65 @@
+﻿@model RankCreditCard.Models.CreditCard
+@{
+    ViewData["Title"] = "Add Card Page";
+}
+
+
+<form asp-action="Add" asp-area="CreditCard" method="post" class="credit-card">
+    <div class="form-header">
+        <h4 class="title">Credit card detail</h4>
+    </div>
+
+    <div class="form-body">
+
+        <!-- Card Number -->
+        <div class="form-group">
+            <label>Card Number:</label>
+            <input asp-for="CardNumber" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="19" placeholder="xxxx xxxx xxxx xxxx" class="form-control required" tabindex="1">
+        </div>
+
+        <!--Name on the card -->
+        <div class="form-group">
+            <label>Card Holder:</label>
+            <input asp-for="CardHolderName" type="text" class="form-control required" placeholder="Card Holder Name" tabindex="2">
+        </div>
+
+
+        <!-- Date Field -->
+        <div class="date-field">
+            <div class="month">
+                <select asp-for="ExpiryMonth"
+                        asp-items="@Html.GetEnumSelectList<RankCreditCard.Helpers.MonthEnums>()" tabindex="3">
+                </select>
+            </div>
+
+
+            <div class="year">
+                <select asp-for="ExpiryYear" tabindex="4">
+                    <option value="0">Select Year</option>
+                    <option value="2023">23</option>
+                    <option value="2024">24</option>
+                    <option value="2025">25</option>
+                    <option value="2026">26</option>
+                    <option value="2027">27</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Card Verification Field -->
+        <div class="card-verification">
+            <div class="cvv-input">
+                <input asp-for="CCVNumber" type="text" class="form-control required" placeholder="CVV" tabindex="5">
+            </div>
+            <div class="cvv-details">
+                <p>3 or 4 digits usually found <br> on the signature strip</p>
+            </div>
+        </div>
+
+        <!-- Buttons -->
+        <button type="submit" class="proceed-btn">Save Card</button>
+        <a asp-action="Index" asp-controller="Contacts" class="proceed-btn">Cancel</a>
+
+    </div>
+</form>
+
+
