@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "xYgPbHPxdIe5B0rhqrD03INZ2kzpdEvJLzYY2onetfHl8NtE6SdOehbD+DVOz8Sj6juNBxO4g9y12eAcRQl6+g==",
+  "dgSpecHash": "2Fg9HVEDEDazzH2EMHCuDDIQ/q1VpZDYdl0OcugZFCK6M0KWS78+G5iPMsYpqSPtCOPy/tNGHwt0mgGAGBcgNA==",
   "success": true,
   "projectFilePath": "C:\\Code\\RankCreditCard\\RankCreditCard\\RankCreditCard.csproj",
   "expectedPackageFiles": [
@@ -39,7 +39,9 @@
     "C:\\Users\\sinetemba.nkosana\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\5.0.14\\microsoft.entityframeworkcore.tools.5.0.14.nupkg.sha512",
     "C:\\Users\\sinetemba.nkosana\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\5.0.0\\microsoft.extensions.caching.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\sinetemba.nkosana\\.nuget\\packages\\microsoft.extensions.caching.memory\\5.0.0\\microsoft.extensions.caching.memory.5.0.0.nupkg.sha512",
+    "C:\\Users\\sinetemba.nkosana\\.nuget\\packages\\microsoft.extensions.configuration\\5.0.0\\microsoft.extensions.configuration.5.0.0.nupkg.sha512",
     "C:\\Users\\sinetemba.nkosana\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\5.0.0\\microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\sinetemba.nkosana\\.nuget\\packages\\microsoft.extensions.configuration.binder\\5.0.0\\microsoft.extensions.configuration.binder.5.0.0.nupkg.sha512",
     "C:\\Users\\sinetemba.nkosana\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\5.0.2\\microsoft.extensions.dependencyinjection.5.0.2.nupkg.sha512",
     "C:\\Users\\sinetemba.nkosana\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\sinetemba.nkosana\\.nuget\\packages\\microsoft.extensions.dependencymodel\\5.0.0\\microsoft.extensions.dependencymodel.5.0.0.nupkg.sha512",

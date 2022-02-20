@@ -11,8 +11,8 @@ C:\Code\RankCreditCard\Infrastructure\obj\Debug\net5.0\Infrastructure.GeneratedM
 C:\Code\RankCreditCard\Infrastructure\obj\Debug\net5.0\Infrastructure.AssemblyInfoInputs.cache
 C:\Code\RankCreditCard\Infrastructure\obj\Debug\net5.0\Infrastructure.AssemblyInfo.cs
 C:\Code\RankCreditCard\Infrastructure\obj\Debug\net5.0\Infrastructure.csproj.CoreCompileInputs.cache
+C:\Code\RankCreditCard\Infrastructure\obj\Debug\net5.0\Infrastructure.csproj.CopyComplete
 C:\Code\RankCreditCard\Infrastructure\obj\Debug\net5.0\Infrastructure.dll
 C:\Code\RankCreditCard\Infrastructure\obj\Debug\net5.0\ref\Infrastructure.dll
 C:\Code\RankCreditCard\Infrastructure\obj\Debug\net5.0\Infrastructure.pdb
 C:\Code\RankCreditCard\Infrastructure\obj\Debug\net5.0\Infrastructure.genruntimeconfig.cache
-C:\Code\RankCreditCard\Infrastructure\obj\Debug\net5.0\Infrastructure.csproj.CopyComplete

@@ -16,7 +16,6 @@ namespace RankCreditCard.Controllers
         private readonly ICreditCardRepository _creditCardRepository;
         private readonly IMapper _mapper;
 
-
         public CreditCardController(ICreditCardRepository creditCardRepository, IMapper mapper)
         {
             _creditCardRepository = creditCardRepository;
@@ -37,18 +36,17 @@ namespace RankCreditCard.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add(CreditCardViewModel creditcardViewModel)
+        public IActionResult Add(CreditCardViewModel creditcardViewModel)
         {
+
+            var creditCardDetector = new CreditCardDetector(creditcardViewModel.CardNumber);            
+            creditcardViewModel.Provider = creditCardDetector.BrandName;
 
             // validate that our model meets the requirement
             if (ModelState.IsValid)
             {
                 try
-                {
-                    //TODO: move this to a service in CORE project
-                    var creditCardDetector = new CreditCardDetector(creditcardViewModel.CardNumber);
-                    var brand = creditCardDetector.BrandName;
-
+                {          
                     var entity = new CreditCard()
                     {
                         CardHolderName = creditcardViewModel.CardHolderName,
@@ -56,7 +54,7 @@ namespace RankCreditCard.Controllers
                         CCVNumber = creditcardViewModel.CCVNumber,
                         ExpiryMonth = creditcardViewModel.ExpiryMonth,
                         ExpiryYear = creditcardViewModel.ExpiryYear,
-                        Provider = brand,
+                        Provider = creditcardViewModel.Provider,
 
                     };
 
@@ -83,7 +81,6 @@ namespace RankCreditCard.Controllers
             var creditCard = await _creditCardRepository.GetCreditCardByIdAsync(id);
 
             return View(_mapper.Map<CreditCard, CreditCardViewModel>(creditCard));
-
         }
        
         [HttpPost]
