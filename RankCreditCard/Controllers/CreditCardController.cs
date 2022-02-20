@@ -60,7 +60,7 @@ namespace RankCreditCard.Controllers
                 }
             }
 
-            ModelState.AddModelError(string.Empty, $"Something went wrong, invalid model");
+            ModelState.AddModelError(string.Empty, $"Something went wrong, invalid information provided.");
 
             // We return the object back to view
             return View(creditcard);
