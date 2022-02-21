@@ -33,10 +33,7 @@ namespace RankCreditCard
             services.AddDbContext<RankCreditCardContext>(options => options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddTransient<IValidator<CreditCardViewModel>, CreditCardInfoValidator>();
-
-            services.AddScoped<ICreditCardRepository, CreditCardRepository>();
-
-
+            services.AddScoped<ICreditCardRepository, CreditCardRepository>();        
 
             // Auto Mapper Configurations
             var mapperConfig = new MapperConfiguration(mc =>

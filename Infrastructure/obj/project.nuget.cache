@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "+vmUuO7NtXMySSHO/GaPG/tJJNV6PGFcQNlvW0AOqqAFR8QeNmEWP+u/MZb2F6d9Cim1FnGo1QkZzvs0uNYhYg==",
+  "dgSpecHash": "lUZ1Sc/J74AR+FjMUSnaIjzO1L8YqWISDChysVYc8yhHD1NWP6mmAkQarDoWLbFeVoZuMj/XVYafFnk8hG3Fcw==",
   "success": true,
   "projectFilePath": "C:\\Code\\RankCreditCard\\Infrastructure\\Infrastructure.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\sinetemba.nkosana\\.nuget\\packages\\creditcardvalidator\\2.0.1\\creditcardvalidator.2.0.1.nupkg.sha512",
     "C:\\Users\\sinetemba.nkosana\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\sinetemba.nkosana\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\sinetemba.nkosana\\.nuget\\packages\\microsoft.data.sqlite.core\\5.0.14\\microsoft.data.sqlite.core.5.0.14.nupkg.sha512",

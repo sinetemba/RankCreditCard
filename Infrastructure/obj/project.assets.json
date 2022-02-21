@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     "net5.0": {
+      "CreditCardValidator/2.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp2.0/CreditCardValidator.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/CreditCardValidator.dll": {}
+        }
+      },
       "Humanizer.Core/2.8.26": {
         "type": "package",
         "compile": {
@@ -1615,6 +1624,25 @@
     }
   },
   "libraries": {
+    "CreditCardValidator/2.0.1": {
+      "sha512": "8D+pnmcamVGonbG1AhmJwXDnR/l7e1pQwof0CIpIqMoJeGJfJKBQwjOw/amv82OMmjg0l6Xlub9agX1F1FMAtg==",
+      "type": "package",
+      "path": "creditcardvalidator/2.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "creditcardvalidator.2.0.1.nupkg.sha512",
+        "creditcardvalidator.nuspec",
+        "lib/net40/CreditCardValidator.dll",
+        "lib/net45/CreditCardValidator.dll",
+        "lib/net46/CreditCardValidator.dll",
+        "lib/netcoreapp1.0/CreditCardValidator.dll",
+        "lib/netcoreapp1.1/CreditCardValidator.dll",
+        "lib/netcoreapp2.0/CreditCardValidator.dll",
+        "lib/netstandard1.0/CreditCardValidator.dll",
+        "lib/netstandard2.0/CreditCardValidator.dll"
+      ]
+    },
     "Humanizer.Core/2.8.26": {
       "sha512": "OiKusGL20vby4uDEswj2IgkdchC1yQ6rwbIkZDVBPIR6al2b7n3pC91elBul9q33KaBgRKhbZH3+2Ur4fnWx2A==",
       "type": "package",
@@ -5597,6 +5625,7 @@
   "projectFileDependencyGroups": {
     "net5.0": [
       "Core >= 1.0.0",
+      "CreditCardValidator >= 2.0.1",
       "Microsoft.EntityFrameworkCore.Sqlite >= 5.0.14",
       "Microsoft.EntityFrameworkCore.Sqlite.Design >= 1.1.6",
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.14"
@@ -5646,6 +5675,10 @@
       "net5.0": {
         "targetAlias": "net5.0",
         "dependencies": {
+          "CreditCardValidator": {
+            "target": "Package",
+            "version": "[2.0.1, )"
+          },
           "Microsoft.EntityFrameworkCore.Sqlite": {
             "target": "Package",
             "version": "[5.0.14, )"

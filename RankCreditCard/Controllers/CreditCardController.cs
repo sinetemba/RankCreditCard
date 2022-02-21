@@ -8,13 +8,14 @@ using RankCreditCard.Helpers;
 using Core.Entities;
 using Core.Interfaces;
 using AutoMapper;
+using Infrastructure.Helpers;
 
 namespace RankCreditCard.Controllers
 {
     public class CreditCardController : Controller
     {
         private readonly ICreditCardRepository _creditCardRepository;
-        private readonly IMapper _mapper;
+        private readonly IMapper _mapper;       
 
         public CreditCardController(ICreditCardRepository creditCardRepository, IMapper mapper)
         {
@@ -38,10 +39,6 @@ namespace RankCreditCard.Controllers
         [HttpPost]
         public IActionResult Add(CreditCardViewModel creditcardViewModel)
         {
-
-            var creditCardDetector = new CreditCardDetector(creditcardViewModel.CardNumber);            
-            creditcardViewModel.Provider = creditCardDetector.BrandName;
-
             // validate that our model meets the requirement
             if (ModelState.IsValid)
             {
@@ -54,7 +51,7 @@ namespace RankCreditCard.Controllers
                         CCVNumber = creditcardViewModel.CCVNumber,
                         ExpiryMonth = creditcardViewModel.ExpiryMonth,
                         ExpiryYear = creditcardViewModel.ExpiryYear,
-                        Provider = creditcardViewModel.Provider,
+                        Provider = creditcardViewModel.CardNumber.GetCreditCardBrandName(),
 
                     };
 

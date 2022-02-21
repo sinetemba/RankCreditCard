@@ -2337,6 +2337,7 @@
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
           "Core": "1.0.0",
+          "CreditCardValidator": "2.0.1",
           "Microsoft.EntityFrameworkCore.Sqlite": "5.0.14",
           "Microsoft.EntityFrameworkCore.Sqlite.Design": "1.1.6"
         },
@@ -7548,7 +7549,6 @@
       "AutoMapper >= 11.0.1",
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 11.0.0",
       "Core >= 1.0.0",
-      "CreditCardValidator >= 2.0.1",
       "FluentValidation.AspNetCore >= 10.3.6",
       "Infrastructure >= 1.0.0",
       "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation >= 5.0.14",
@@ -7614,10 +7614,6 @@
           "AutoMapper.Extensions.Microsoft.DependencyInjection": {
             "target": "Package",
             "version": "[11.0.0, )"
-          },
-          "CreditCardValidator": {
-            "target": "Package",
-            "version": "[2.0.1, )"
           },
           "FluentValidation.AspNetCore": {
             "target": "Package",

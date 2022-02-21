@@ -1,6 +1,7 @@
 ﻿using Core.Interfaces;
 using CreditCardValidator;
 using FluentValidation;
+using Infrastructure.Helpers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using RankCreditCard.Interfaces;
@@ -16,16 +17,15 @@ namespace RankCreditCard.Validators
 {
     public class CreditCardInfoValidator : AbstractValidator<CreditCardViewModel>
     {
-        private readonly ICreditCardRepository _creditCardRepository;
-        private readonly IConfiguration _configuration;
+        private readonly ICreditCardRepository _creditCardRepository;      
         public CreditCardInfoValidator(ICreditCardRepository creditCardRepository, IConfiguration configuration)
         {
-            _creditCardRepository = creditCardRepository;         
+            _creditCardRepository = creditCardRepository;           
 
             RuleFor(x => x.CardHolderName).NotEmpty().WithMessage("Please provide the name on the card.");
             RuleFor(x => x.CardNumber).CustomAsync(IsCardNumberValid).NotEmpty().DependentRules(() =>
             {
-                RuleFor(x => x.CardNumber).CustomAsync(IsProviderAllowed);             
+                RuleFor(x => x.CardNumber).Custom(IsProviderAllowed);             
             });
             RuleFor(x => x.CCVNumber).NotEmpty().WithMessage("Please provide ccv pin").InclusiveBetween(100, 9999).WithMessage("Please provide a valid ccv number");
             RuleFor(x => x.ExpiryYear).InclusiveBetween(2022, 2027).WithMessage("Please select Expiry year").NotEmpty();
@@ -43,18 +43,17 @@ namespace RankCreditCard.Validators
                 creditCardContext.AddFailure("CardNumber", "The credit card number provided is already exist please provide a new number");
             }
 
-            var cc = new CreditCardDetector(creditCardNumber);
-            var isValid = cc.IsValid();
+            var isValid = creditCardNumber.IsValidCrediCard();
             if (!isValid)
             {
                 creditCardContext.AddFailure("CardNumber", "The credit card number provided is not valid");
             }                       
         }
 
-        private async Task IsProviderAllowed(string cardNumber, ValidationContext<CreditCardViewModel> creditCardContext, CancellationToken cancellationToken)
+        private void IsProviderAllowed(string cardNumber, ValidationContext<CreditCardViewModel> creditCardContext)
         {
-            var creditCardDetector = new CreditCardDetector(cardNumber);
-            var provider = creditCardDetector.Brand.ToString();
+
+            var provider = cardNumber.GetCreditCardProviderName();
 
             IConfigurationRoot _config = new ConfigurationBuilder()
               .SetBasePath(Directory.GetParent(AppContext.BaseDirectory).FullName)
@@ -62,7 +61,7 @@ namespace RankCreditCard.Validators
               .Build();
 
             List<string> allowedProviders = _config.GetSection("AllowedCards:Providers").Get<List<string>>();
-            if(!allowedProviders.Contains(provider))
+            if (!allowedProviders.Contains(provider))
             {
                 creditCardContext.AddFailure($"The provider: {provider}, is not configured to be captured. only {string.Join(", ", allowedProviders)} can be captured");
             }

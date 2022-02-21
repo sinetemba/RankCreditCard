@@ -6,7 +6,7 @@
 }
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <input type="button" value="Add New Card" onclick="location.href='@Url.Action("Add", "CreditCard")'" />
 </p>
 <table class="table">
     <thead>
@@ -63,9 +63,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Provider)
                 </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id}) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                <td>                  
                     @Html.ActionLink("Delete", "Delete", new { id = item.Id })
                 </td>
             </tr>
@@ -75,4 +73,3 @@
 
 
 
-<input type="button" value="Add New Card" onclick="location.href='@Url.Action("Add", "CreditCard")'" />
