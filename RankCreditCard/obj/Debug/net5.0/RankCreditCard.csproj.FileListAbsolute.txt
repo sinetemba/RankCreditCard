@@ -426,7 +426,6 @@ C:\Code\RankCreditCard\RankCreditCard\obj\Debug\net5.0\Razor\Views\CreditCard\Ad
 C:\Code\RankCreditCard\RankCreditCard\obj\Debug\net5.0\Razor\Views\CreditCard\Delete.cshtml.g.cs
 C:\Code\RankCreditCard\RankCreditCard\obj\Debug\net5.0\Razor\Views\CreditCard\List.cshtml.g.cs
 C:\Code\RankCreditCard\RankCreditCard\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
-C:\Code\RankCreditCard\RankCreditCard\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Code\RankCreditCard\RankCreditCard\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Code\RankCreditCard\RankCreditCard\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Code\RankCreditCard\RankCreditCard\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
@@ -440,3 +439,4 @@ C:\Code\RankCreditCard\RankCreditCard\obj\Debug\net5.0\RankCreditCard.dll
 C:\Code\RankCreditCard\RankCreditCard\obj\Debug\net5.0\ref\RankCreditCard.dll
 C:\Code\RankCreditCard\RankCreditCard\obj\Debug\net5.0\RankCreditCard.pdb
 C:\Code\RankCreditCard\RankCreditCard\obj\Debug\net5.0\RankCreditCard.genruntimeconfig.cache
+C:\Code\RankCreditCard\RankCreditCard\obj\Debug\net5.0\Razor\Views\Home\Help.cshtml.g.cs

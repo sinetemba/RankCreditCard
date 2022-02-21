@@ -47,7 +47,7 @@ namespace RankCreditCard.Controllers
                     var entity = new CreditCard()
                     {
                         CardHolderName = creditcardViewModel.CardHolderName,
-                        CardNumber = creditcardViewModel.CardNumber.Encrypt(),
+                        CardNumber = creditcardViewModel.CardNumber.RemoveWhiteSpaces().Encrypt(),
                         CCVNumber = creditcardViewModel.CCVNumber,
                         ExpiryMonth = creditcardViewModel.ExpiryMonth,
                         ExpiryYear = creditcardViewModel.ExpiryYear,

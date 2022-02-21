@@ -6,7 +6,7 @@
 }
 
 <p>
-    <input type="button" value="Add New Card" onclick="location.href='@Url.Action("Add", "CreditCard")'" />
+    <input type="button" value="Add New Card" class="btn btn-dark" onclick="location.href='@Url.Action("Add", "CreditCard")'" />
 </p>
 <table class="table">
     <thead>
@@ -63,8 +63,8 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Provider)
                 </td>
-                <td>                  
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                <td>    
+                    <a asp-controller="CreditCard" asp-action="Delete" asp-route-id="@item.Id" class="fa fa-trash alert-danger">Remove</a>                   
                 </td>
             </tr>
         }

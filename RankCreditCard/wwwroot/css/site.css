@@ -97,7 +97,7 @@ img {
 html, body {
     font-size: 100%;
     font-family: 'Mirza', cursive;
-    background: url(../images/banner.jpg) no-repeat 0px 0px;
+    background: url(../images/banner2.jpg) no-repeat 0px 0px;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -107,7 +107,7 @@ html, body {
 }
 
 h1, h2, h3, h4, h5, h6, input, p, a, select, button {
-    font-family: 'Mirza', cursive;
+    font-family: 'Times New Roman', cursive;
     margin: 0;
 }
 
@@ -550,5 +550,16 @@ body a:hover, body a {
 
     .agileits_w3layouts_tab2 input[type="email"], .agileits_w3layouts_tab2 input[type="password"], .creditly-wrapper .form-control {
         width: 90.5% !important;
+    }
+
+
+    .btn-container {
+        display: inline-flex;
+        padding: 1rem
+    }
+
+    .child {
+        border: 1px solid indigo;
+        padding: 1rem
     }
 }

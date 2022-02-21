@@ -5,10 +5,13 @@
 
 <form asp-action="Add" asp-area="CreditCard" method="post" class="creditly-card-form agileinfo_form">
     <section class="creditly-wrapper wthree, w3_agileits_wrapper">
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div class="form-header">
-            <h4 class="title">New credit card information</h4>
+
+
+        <div class="form-header ">
+            <h2 class="text-center text-dark">New credit card information</h2>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         </div>
+        
 
         <div class="credit-card-wrapper">
             <div class="first-row form-group">
@@ -16,8 +19,8 @@
                 <div class="controls">
                     <label>Card Number:</label>
                     <span asp-validation-for="CardNumber" class="text-danger"></span>
-                    <input asp-for="CardNumber" id="cardNumber" type="text" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" autocompletetype="cc-number" x-autocompletetype="cc-number"
-                           maxlength="19" placeholder="xxxx xxxx xxxx xxxx" data-inputmask="'mask': '9999 9999 9999 9999'" class="form-control required" tabindex="1">
+                    <input asp-for="CardNumber" id="cardNumber" type="text" inputmode="numeric" pattern="[0-9\s]{13,19}"
+                           maxlength="19" placeholder="xxxx xxxx xxxx xxxx" data-mask="9999 9999 9999 9999" class="form-control required" tabindex="1">
                 </div>
 
                 <!--Name on the card -->
@@ -55,17 +58,19 @@
                 <div class="controls">
                     <div class="cvv-input">
                         <label>CCV Number:</label>
+                        <p class="text-dark">3 or 4 digits usually found <br> on the signature strip</p>
                         <span asp-validation-for="CCVNumber" class="text-danger"></span>
-                        <input asp-for="CCVNumber" type="text" class="form-control required" placeholder="CVV" tabindex="5">
-                    </div>
-                    <div class="cvv-details">
-                        <p>3 or 4 digits usually found <br> on the signature strip</p>
+                        <input asp-for="CCVNumber" type="text" data-mask="9999" class="form-control required" placeholder="CVV" tabindex="5">
                     </div>
                 </div>
 
                 <!-- Buttons -->
-                <button type="submit" class="proceed-btn"><span>Save Card Info <i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></button>
-                <a asp-action="List" asp-controller="CreditCard" class="proceed-btn">Cancel</a>
+                <button type="submit" class="btn btn-success"><span>Save Card Info </span></button>     |
+
+                <a asp-action="List" asp-controller="CreditCard" class="btn btn-dark">Cancel</a>
+
+
+
             </div>
         </div>
     </section>
@@ -74,25 +79,3 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
 }
-
-<!-- credit-card -->
-<script type="text/javascript" src="js/creditly.js"></script>
-<script type="text/javascript">
-    $(function () {
-        var creditly = Creditly.initialize(
-            '.creditly-wrapper .expiration-month-and-year',
-            '.creditly-wrapper .credit-card-number',
-            '.creditly-wrapper .security-code',
-            '.creditly-wrapper .card-type');
-
-        $(".creditly-card-form .submit").click(function (e) {
-            e.preventDefault();
-            var output = creditly.validate();
-            if (output) {
-                // Your validated credit card output
-                console.log(output);
-            }
-        });
-    });
-</script>
-<!-- //credit-card -->

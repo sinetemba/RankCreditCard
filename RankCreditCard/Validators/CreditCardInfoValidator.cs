@@ -4,6 +4,7 @@ using FluentValidation;
 using Infrastructure.Helpers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using RankCreditCard.Helpers;
 using RankCreditCard.Interfaces;
 using RankCreditCard.Models;
 using System;
@@ -36,7 +37,7 @@ namespace RankCreditCard.Validators
         private async Task IsCardNumberValid(string creditCardNumber, ValidationContext<CreditCardViewModel> creditCardContext, CancellationToken cancellationToken)
         {      
 
-            var creditCardExist = await _creditCardRepository.CheckIfAccountNumberExist(creditCardNumber);
+            var creditCardExist = await _creditCardRepository.CheckIfAccountNumberExist(creditCardNumber.RemoveWhiteSpaces().Encrypt());
 
             if (creditCardExist)
             {
@@ -53,7 +54,7 @@ namespace RankCreditCard.Validators
         private void IsProviderAllowed(string cardNumber, ValidationContext<CreditCardViewModel> creditCardContext)
         {
 
-            var provider = cardNumber.GetCreditCardProviderName();
+            var provider = cardNumber.RemoveWhiteSpaces().GetCreditCardProviderName();
 
             IConfigurationRoot _config = new ConfigurationBuilder()
               .SetBasePath(Directory.GetParent(AppContext.BaseDirectory).FullName)

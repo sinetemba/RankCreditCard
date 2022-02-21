@@ -4,5 +4,17 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome, to Rank Interactive Credit Card Management System</h1>
-    <input type="button" value="Manage Credit Cards" onclick="location.href='@Url.Action("List", "CreditCard")'" />
+
+    <div>
+        <input type="button" value="Manage Credit Cards" class="btn btn-dark btn-lg" onclick="location.href='@Url.Action("List", "CreditCard")'" />
+    </div>
+
+    <br />
+    <br />
+    <div>
+        <a asp-action="List" asp-controller="CreditCard">
+            <img src="~/images/allowed.jpg" alt="allowed cards" />
+         </a>
+    </div>
+
 </div>

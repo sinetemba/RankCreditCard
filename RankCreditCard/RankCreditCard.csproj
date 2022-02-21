@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\image\" />
     <Folder Include="wwwroot\fonts\" />
+    <Folder Include="wwwroot\lib\jquery-masked-input\" />
   </ItemGroup>
 
   <ItemGroup>
