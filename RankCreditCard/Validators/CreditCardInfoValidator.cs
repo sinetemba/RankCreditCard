@@ -1,16 +1,12 @@
 ﻿using Core.Interfaces;
-using CreditCardValidator;
 using FluentValidation;
 using Infrastructure.Helpers;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using RankCreditCard.Helpers;
-using RankCreditCard.Interfaces;
 using RankCreditCard.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -41,7 +37,7 @@ namespace RankCreditCard.Validators
 
             if (creditCardExist)
             {
-                creditCardContext.AddFailure("CardNumber", "The credit card number provided is already exist please provide a new number");
+                creditCardContext.AddFailure("CardNumber", "The credit card number provided already exist, please provide a new number");
             }
 
             var isValid = creditCardNumber.IsValidCrediCard();

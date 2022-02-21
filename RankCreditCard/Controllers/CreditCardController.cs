@@ -1,5 +1,4 @@
-﻿using CreditCardValidator;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using RankCreditCard.Models;
 using System;
 using System.Collections.Generic;
