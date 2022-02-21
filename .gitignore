@@ -6,4 +6,8 @@
 /Core/obj
 /Infrastructure/obj
 /RankCreditCard/obj
+<<<<<<< HEAD
 
+=======
+/RankCreditCard/bin/Debug/net5.0
+>>>>>>> c8c9f46ba51073893fbb5a15424f1dbfe474f79f
